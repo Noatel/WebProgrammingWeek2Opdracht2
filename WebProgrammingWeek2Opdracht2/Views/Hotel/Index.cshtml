@@ -1,0 +1,45 @@
+﻿@model List<HotelBoeking>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Date
+        </th>
+
+        <th>
+
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            <a href="/Hotel/edit/@item.BoekingID">
+                Edit
+            </a>
+        </td>
+    </tr>
+    }
+</table>
+
+<strong style="color:green">@TempData["status"]</strong>
